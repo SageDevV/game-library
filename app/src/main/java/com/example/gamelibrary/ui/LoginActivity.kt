@@ -1,11 +1,12 @@
-package com.example.gamelibrary
+package com.example.gamelibrary.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gamelibrary.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -32,8 +33,14 @@ class LoginActivity : AppCompatActivity() {
     private fun autenticarUsuario(username: String, password: String) {
         if (username == "admin" && password == "123") {
             Toast.makeText(this, "Login bem-sucedido", Toast.LENGTH_SHORT).show()
+            NavegarHome()
         } else {
             Toast.makeText(this, "Nome de usuário ou senha incorretos", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun NavegarHome(){
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 }
